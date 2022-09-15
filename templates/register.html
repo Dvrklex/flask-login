@@ -1,0 +1,50 @@
+{% extends './base.html' %}
+
+{% block tittle %}
+
+Login
+
+{% endblock %}
+
+{% block body %}
+
+    {% block customCSS%}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/login.css') }}">
+
+    {% endblock %}
+
+<form class="form-signin" action="/register_user" method="POST">
+    <img class="mb-4" id= 'logo' src="{{ url_for('static',filename='img/logo.png') }}" alt="" width="72" height="57">
+
+    
+
+    <h1 class="h3 mb-3 fw-normal">Please... sign up</h1>
+
+    <div class="form-floating">
+    <input type="text" class="form-control" id="name" name="name" placeholder="Example11">
+    <label for="username">Name</label>
+    </div>    
+    <div class="form-floating">
+    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Example11">
+    <label for="username">Lastname</label>
+    </div>    
+    <div class="form-floating">
+    <input type="text" class="form-control" id="username" name="username" placeholder="Example11">
+    <label for="username">Username</label>
+    </div>
+    <div class="form-floating">
+        <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com">
+        <label for="email">Email</label>
+    </div>
+    <div class="form-floating">
+    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+    <label for="password">Password</label>
+    </div>
+
+    <!-- Boton para crear cuenta -->
+    <a href="/login">Log in</a>
+    <button class="w-100 btn btn-lg btn-primary" type="submit"> Sign in</button>
+    
+</form>
+
+{% endblock %}

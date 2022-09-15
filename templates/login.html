@@ -1,0 +1,48 @@
+{% extends './base.html' %}
+
+{% block tittle %}
+
+Login
+
+{% endblock %}
+
+{% block body %}
+
+    {% block customCSS%}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/login.css') }}">
+
+    {% endblock %}
+
+<form class="form-signin" action="/login" method="POST">
+    <img class="mb-4" id= 'logo' src="{{ url_for('static',filename='img/logo.png') }}" alt="" width="72" height="57">
+    {% with messages = get_flashed_messages() %}
+
+    {% if messages %}
+<br/>
+    {% for message in messages %}
+    <div class="alert alert-danger alert-dismissible" role="alert">
+    <strong>{{ message }}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+    <div class="form-floating">
+    <input type="text" class="form-control" id="user" name="user" placeholder="Example11">
+    <label for="username">Username</label>
+    </div>
+    <div class="form-floating">
+    <input type="password" class="form-control" id="password_log" name="password_log" placeholder="Password">
+    <label for="password">Password</label>
+    </div>
+
+    <!-- Boton para crear cuenta -->
+    <a href="/register" >Create account</a>
+    <button class="w-100 btn btn-lg btn-primary" type="submit"> Sign in</button>
+    
+</form>
+
+{% endblock %}
